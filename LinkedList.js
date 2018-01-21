@@ -116,7 +116,7 @@ LinkedList.prototype.insertPosition = function(pos, val) {
 
 //DELETE FROM POSION
 LinkedList.prototype.deletePosition = function(pos) {
-	temp = this.head;
+	
 	if(this.isEmpty()){
 		console.log("List is Empty");
 	}else{
@@ -127,17 +127,19 @@ LinkedList.prototype.deletePosition = function(pos) {
 			this.head = this.head.next;
 		}
 		else{
+			temp = this.head;
 			for(var i=1;i<pos-1;i++){
 				temp = temp.next;
 			}
 			temp.next = temp.next.next;
-
+			console.log("item deleted");
 		}	
 	}
 		
 };
 
 
+//[3]->[9]->[5]->[555]->[22]->[10]->
 
 var list = new LinkedList();
 list.prepend(5);
@@ -145,8 +147,8 @@ list.append(22);
 list.prepend(9);
 list.prepend(3);
 list.append(10);
-list.insertPosition(2,555);
-list.deletePosition(3);
+list.insertPosition(4,555);
+list.deletePosition(2);
 list.show();
 console.log("Size of the list is :" + list.size());
 //console.log(list);
